@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="none">0dp</dimen>
+    <dimen name="small">8dp</dimen>
+    <dimen name="medium">16dp</dimen>
+    <dimen name="big">24dp</dimen>
+    <dimen name="enormous">32dp</dimen>
+    <dimen name="gigantic">40dp</dimen>
+    <dimen name="universe">48dp</dimen>
+</resources>
