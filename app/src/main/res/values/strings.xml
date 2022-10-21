@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">android-minesweeper</string>
+    <string name="app_name">Android Minesweeper</string>
     <string name="welcome_to">Welcome to</string>
-    <string name="title">Android Minesweeper</string>
     <string name="load_game">Load Game</string>
     <string name="new_game">New Game</string>
     <string name="highscores">Highscores</string>
     <string name="help">Help</string>
     <string name="toggle_darkmode">Toggle Darkmode</string>
+    <string name="minesweeper_icon">Minesweeper Icon</string>
 </resources>

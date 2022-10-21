@@ -24,7 +24,7 @@
         android:id="@+id/title"
         android:layout_width="@dimen/none"
         android:layout_height="wrap_content"
-        android:text="@string/title"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
@@ -51,5 +51,6 @@
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/version"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/minesweeper_icon" />
 </androidx.constraintlayout.widget.ConstraintLayout>
