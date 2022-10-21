@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartControls">
+    tools:context=".fragments.StartControlsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/loadGame_button"
+        android:layout_width="@dimen/none"
+        android:layout_height="@dimen/universe"
+        android:text="@string/load_game"
+        android:layout_marginBottom="@dimen/mini"
+        app:layout_constraintBottom_toTopOf="@+id/newGame_button"
+        app:layout_constraintEnd_toEndOf="@+id/newGame_button"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/newGame_button" />
+
+    <Button
+        android:id="@+id/newGame_button"
+        android:layout_width="@dimen/none"
+        android:layout_height="@dimen/universe"
+        android:text="@string/new_game"
+        android:layout_marginBottom="@dimen/mini"
+        app:layout_constraintBottom_toTopOf="@+id/highscore_button"
+        app:layout_constraintEnd_toEndOf="@+id/highscore_button"
+        app:layout_constraintStart_toStartOf="@+id/highscore_button" />
+
+    <Button
+        android:id="@+id/highscore_button"
+        android:layout_width="@dimen/none"
+        android:layout_height="@dimen/universe"
+        android:text="@string/highscores"
+        android:layout_marginBottom="@dimen/mini"
+        app:layout_constraintBottom_toTopOf="@+id/help_button"
+        app:layout_constraintEnd_toEndOf="@+id/help_button"
+        app:layout_constraintStart_toStartOf="@+id/help_button" />
+
+    <Button
+        android:id="@+id/help_button"
+        android:layout_width="@dimen/none"
+        android:layout_height="@dimen/universe"
+        android:layout_marginStart="@dimen/universe"
+        android:layout_marginEnd="@dimen/universe"
+        android:text="@string/help"
+        app:layout_constraintBottom_toTopOf="@+id/toggleDark_switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/toggleDark_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toggle_darkmode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
