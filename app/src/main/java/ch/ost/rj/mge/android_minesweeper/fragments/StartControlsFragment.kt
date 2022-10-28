@@ -14,6 +14,7 @@ import ch.ost.rj.mge.android_minesweeper.activities.HelpActivity
 import ch.ost.rj.mge.android_minesweeper.activities.HighscoreActivity
 import ch.ost.rj.mge.android_minesweeper.activities.LoadGameActivity
 import ch.ost.rj.mge.android_minesweeper.activities.NewGameActivity
+import java.util.Dictionary
 
 class StartControlsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
