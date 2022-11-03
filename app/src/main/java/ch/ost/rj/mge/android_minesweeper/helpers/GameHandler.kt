@@ -51,9 +51,9 @@ class GameHandler(board: ArrayList<IField>) {
         for (i in 0 until fieldHeight) {
             for (j in 0 until fieldWidth) {
                 if (isMine(i, j, mines)) {
-                    board.add(Mine(Position(i, j), 0))
+                    board.add(Mine(Position(i, j)))
                 } else {
-                    board.add(Value(Position(i, j), 0))
+                    board.add(Value(Position(i, j)))
                 }
             }
         }
