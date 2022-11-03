@@ -16,7 +16,7 @@ data class Value(
         }
 
     private fun updateFieldImage(value: Int) {
-        when(value){
+        fieldImage = when(value){
             0 -> convertToInt(FieldValue.Zero)
             1 -> convertToInt(FieldValue.One)
             2 -> convertToInt(FieldValue.Two)
@@ -27,9 +27,5 @@ data class Value(
             7 -> convertToInt(FieldValue.Seven)
             else -> convertToInt(FieldValue.Eight)
         }
-    }
-
-    init {
-        fieldImage = R.drawable.one
     }
 }
