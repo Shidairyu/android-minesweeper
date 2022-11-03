@@ -16,16 +16,55 @@ class GameHandler(board: ArrayList<IField>) {
     }
 
     fun setupGame() {
-        val bombs: ArrayList<Position> = generateBombs()
+        InitBoard()
+        updateMineCounts()
+    }
 
-        for (i in 0 until  fieldHeight){
-            for (j in 0 until fieldWidth){
-                board.add(Value(Position(i,j),0))
+    private fun updateMineCounts() {
+        for (field in board){
+            if (field is Mine){
+                var top = board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y}
+                var bottom = board.find { item -> item.pos.X == field.pos.X +1 && item.pos.Y == field.pos.Y}
+                var left = board.find { item -> item.pos.X == field.pos.X && item.pos.Y == field.pos.Y - 1}
+                var right = board.find { item -> item.pos.X == field.pos.X && item.pos.Y == field.pos.Y + 1}
+                var topleft = board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y -1}
+                var topright = board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y + 1}
+                var bottomleft = board.find { item -> item.pos.X == field.pos.X + 1 && item.pos.Y == field.pos.Y - 1}
+                var bottomright = board.find { item -> item.pos.X == field.pos.X + 1 && item.pos.Y == field.pos.Y + 1}
+
+                top?.let {  top.bombValue++ }
+                bottom?.let {  bottom.bombValue++ }
+                left?.let {  left.bombValue++ }
+                right?.let {  right.bombValue++ }
+                topleft?.let {  topleft.bombValue++ }
+                topright?.let {  topright.bombValue++ }
+                bottomleft?.let {  bottomleft.bombValue++ }
+                bottomright?.let {  bottomright.bombValue++ }
+
             }
         }
     }
 
-    private fun generateBombs(): ArrayList<Position> {
+    private fun InitBoard() {
+        val mines: ArrayList<Position> = generateMines()
+
+        for (i in 0 until fieldHeight) {
+            for (j in 0 until fieldWidth) {
+                if (isMine(i, j, mines)) {
+                    board.add(Mine(Position(i, j), 0))
+                } else {
+                    board.add(Value(Position(i, j), 0))
+                }
+            }
+        }
+    }
+
+    private fun isMine(i: Int, j: Int, mines: ArrayList<Position>): Boolean {
+        for (mine in mines) if (mine.X == i && mine.Y == j) return true
+        return false
+    }
+
+    private fun generateMines(): ArrayList<Position> {
         var tempList: ArrayList<Position> = ArrayList()
         for (i in 0 until bombCount){
             tempList.add(Position((0 until fieldHeight).random(),(0 until fieldWidth).random()))

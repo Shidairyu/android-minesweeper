@@ -23,7 +23,7 @@ class BoardAdapter(
     }
 
     override fun onBindViewHolder(holder: BoardViewHolder, position: Int) {
-        holder.courseNameTV.text = board[position].pos.X.toString() + " / " + board[position].pos.Y.toString()
+        holder.courseNameTV.text = board[position].pos.X.toString() + board[position].bombValue.toString() + board[position].pos.Y.toString()
         holder.courseIV.setImageResource(board[position].fieldImage)
     }
 
