@@ -1,6 +1,7 @@
 package ch.ost.rj.mge.android_minesweeper.activities
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,7 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        boardRV = findViewById(R.id.idRVCourses)
+        boardRV = findViewById(R.id.idRVBoard)
         board = ArrayList()
         gameHandler = GameHandler(board)
 

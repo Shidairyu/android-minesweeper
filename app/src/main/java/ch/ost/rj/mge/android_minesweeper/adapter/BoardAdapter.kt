@@ -23,8 +23,7 @@ class BoardAdapter(
     }
 
     override fun onBindViewHolder(holder: BoardViewHolder, position: Int) {
-        holder.courseNameTV.text = board[position].pos.X.toString() + board[position].bombValue.toString() + board[position].pos.Y.toString()
-        holder.courseIV.setImageResource(board[position].fieldImage)
+        holder.fieldIV.setImageResource(board[position].fieldImage)
     }
 
     override fun getItemCount(): Int {

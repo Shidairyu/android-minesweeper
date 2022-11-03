@@ -7,9 +7,9 @@ import ch.ost.rj.mge.android_minesweeper.model.Value
 
 class GameHandler(board: ArrayList<IField>) {
     val fieldWidth: Int = 10
-    private val fieldHeight: Int = 10
+    private val fieldHeight: Int = 20
     private var board: ArrayList<IField>
-    private var bombCount: Int = 20
+    var bombCount: Int = 30
 
     init {
         this.board = board
@@ -67,7 +67,11 @@ class GameHandler(board: ArrayList<IField>) {
     private fun generateMines(): ArrayList<Position> {
         var tempList: ArrayList<Position> = ArrayList()
         while (tempList.size != bombCount){
-            tempList.add(Position((0 until fieldHeight).random(),(0 until fieldWidth).random()))
+            val pos = Position((0 until fieldHeight).random(),(0 until fieldWidth).random())
+
+            if (!tempList.contains(pos)){
+                tempList.add(pos)
+            }
         }
         return tempList
     }
