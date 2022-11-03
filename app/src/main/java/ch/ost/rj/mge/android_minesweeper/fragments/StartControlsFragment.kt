@@ -1,6 +1,5 @@
 package ch.ost.rj.mge.android_minesweeper.fragments
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,13 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.activities.HelpActivity
 import ch.ost.rj.mge.android_minesweeper.activities.HighscoreActivity
-import ch.ost.rj.mge.android_minesweeper.activities.LoadGameActivity
-import ch.ost.rj.mge.android_minesweeper.activities.NewGameActivity
-import java.util.Dictionary
+import ch.ost.rj.mge.android_minesweeper.activities.GameActivity
 
 class StartControlsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -24,8 +20,8 @@ class StartControlsFragment : Fragment() {
         val highscoreButton = view.findViewById<Button>(R.id.highscore_button);
         val helpButton = view.findViewById<Button>(R.id.help_button);
 
-        setupButton(loadGameButton, LoadGameActivity::class.java);
-        setupButton(newGameButton, NewGameActivity::class.java);
+        setupButton(loadGameButton, GameActivity::class.java);
+        setupButton(newGameButton, GameActivity::class.java);
         setupButton(highscoreButton, HighscoreActivity::class.java);
         setupButton(helpButton, HelpActivity::class.java);
     }
