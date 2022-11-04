@@ -5,14 +5,15 @@ import ch.ost.rj.mge.android_minesweeper.model.Mine
 import ch.ost.rj.mge.android_minesweeper.model.Position
 import ch.ost.rj.mge.android_minesweeper.model.Value
 
-class GameHandler(board: ArrayList<IField>) {
+class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
     val fieldWidth: Int = 10
     private val fieldHeight: Int = 20
     private var board: ArrayList<IField>
-    var bombCount: Int = 30
+    var bombCount: Int = 0
     private var enablingFields: ArrayList<IField> = ArrayList()
 
     init {
+        bombCount = difficulty.value
         this.board = board
     }
 

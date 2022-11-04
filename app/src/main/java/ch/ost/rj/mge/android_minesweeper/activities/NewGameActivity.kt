@@ -60,11 +60,11 @@ class NewGameActivity : AppCompatActivity() {
 
     fun activateStartButton(difficulty : Difficulty){
         binding.startNewGame.setOnClickListener{
-            intent.putExtra("difficulty", difficulty.toString())
-            intent.putExtra("username", binding.newGameUsernameInput.text.toString())
+            val int = Intent(this, GameActivity::class.java)
+            int.putExtra("difficulty", difficulty.toString())
+            int.putExtra("username", binding.newGameUsernameInput.text.toString())
 
-            val intent = Intent(this, GameActivity::class.java)
-            startActivity(intent)
+            startActivity(int)
         }
         binding.startNewGame.isEnabled = true;
     }

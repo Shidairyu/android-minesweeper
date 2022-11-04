@@ -1,12 +1,10 @@
 package ch.ost.rj.mge.android_minesweeper.activities
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.adapter.BoardAdapter
 import ch.ost.rj.mge.android_minesweeper.databinding.ActivityGameBinding
 import ch.ost.rj.mge.android_minesweeper.helpers.Difficulty
@@ -28,12 +26,12 @@ class GameActivity : AppCompatActivity() {
         val binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val difficulty = intent.getStringExtra(DIFFICULTY_KEY)?.let { Difficulty.fromString(it) };
+        val difficulty = Difficulty.fromString(intent.getStringExtra(DIFFICULTY_KEY)!!)
         val username = intent.getStringExtra(USERNAME_KEY)
 
         boardRV = binding.idRVBoard
         board = ArrayList()
-        gameHandler = GameHandler(board)
+        gameHandler = GameHandler(board, difficulty)
 
         bombCountTV = binding.idTVBombCount
         bombCountTV.text = gameHandler.bombCount.toString()

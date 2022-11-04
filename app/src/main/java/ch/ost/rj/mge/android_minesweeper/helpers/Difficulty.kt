@@ -1,9 +1,9 @@
 package ch.ost.rj.mge.android_minesweeper.helpers
 
 enum class Difficulty(val value : Int){
-    Hard(8),
-    Normal(16),
-    Easy(32);
+    Hard(60),
+    Normal(40),
+    Easy(20);
 
     companion object {
         fun convertToInt(difficulty : Difficulty) : Int{
