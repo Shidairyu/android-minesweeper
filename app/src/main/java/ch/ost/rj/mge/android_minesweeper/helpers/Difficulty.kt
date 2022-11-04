@@ -1,8 +1,8 @@
 package ch.ost.rj.mge.android_minesweeper.helpers
 
 enum class Difficulty(val value : Int){
-    Hard(60),
-    Normal(40),
+    Hard(40),
+    Normal(30),
     Easy(20);
 
     companion object {

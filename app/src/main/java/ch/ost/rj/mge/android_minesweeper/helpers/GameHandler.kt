@@ -4,6 +4,7 @@ import ch.ost.rj.mge.android_minesweeper.model.IField
 import ch.ost.rj.mge.android_minesweeper.model.Mine
 import ch.ost.rj.mge.android_minesweeper.model.Position
 import ch.ost.rj.mge.android_minesweeper.model.Value
+import java.util.Timer
 
 class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
     val fieldWidth: Int = 10
@@ -20,6 +21,11 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
     fun setupGame() {
         initBoard()
         updateMineCounts()
+        startTimer()
+    }
+
+    private fun startTimer() {
+        //Implement Timer
     }
 
     private fun updateMineCounts() {
@@ -63,11 +69,6 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
             }
         }
         return tempList
-    }
-
-
-    private fun showGameOver() {
-
     }
 
     private fun evaluateMove(field: IField) {
@@ -145,5 +146,16 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
                 evaluateMove(field)
             }
         }
+        if(bombCount == 0){
+            showWin()
+        }
+    }
+
+    private fun showWin() {
+        //Implement win state
+    }
+
+    private fun showGameOver() {
+        //Implement game over state
     }
 }
