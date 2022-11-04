@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import ch.ost.rj.mge.android_minesweeper.activities.HelpActivity
 import ch.ost.rj.mge.android_minesweeper.activities.HighscoreActivity
-import ch.ost.rj.mge.android_minesweeper.activities.LoadGameActivity
-import ch.ost.rj.mge.android_minesweeper.activities.NewGameActivity
+import ch.ost.rj.mge.android_minesweeper.activities.GameActivity
 import ch.ost.rj.mge.android_minesweeper.databinding.FragmentStartControlsBinding
 
 class StartControlsFragment : Fragment() {
@@ -20,8 +19,8 @@ class StartControlsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState);
 
-        setupButton(binding.loadGameButton, LoadGameActivity::class.java);
-        setupButton(binding.newGameButton, NewGameActivity::class.java);
+        setupButton(binding.loadGameButton, GameActivity::class.java);
+        setupButton(binding.newGameButton, GameActivity::class.java);
         setupButton(binding.highscoreButton, HighscoreActivity::class.java);
         setupButton(binding.helpButton, HelpActivity::class.java);
     }
