@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.adapter.BoardAdapter
+import ch.ost.rj.mge.android_minesweeper.helpers.Difficulty
 import ch.ost.rj.mge.android_minesweeper.helpers.GameHandler
 import ch.ost.rj.mge.android_minesweeper.model.IField
 
