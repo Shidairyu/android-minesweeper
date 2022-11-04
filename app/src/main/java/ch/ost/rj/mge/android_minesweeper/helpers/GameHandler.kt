@@ -10,6 +10,7 @@ class GameHandler(board: ArrayList<IField>) {
     private val fieldHeight: Int = 20
     private var board: ArrayList<IField>
     var bombCount: Int = 30
+    private var enablingFields: ArrayList<IField> = ArrayList()
 
     init {
         this.board = board
@@ -23,24 +24,11 @@ class GameHandler(board: ArrayList<IField>) {
     private fun updateMineCounts() {
         for (field in board){
             if (field is Mine){
-                var top = board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y}
-                var bottom = board.find { item -> item.pos.X == field.pos.X +1 && item.pos.Y == field.pos.Y}
-                var left = board.find { item -> item.pos.X == field.pos.X && item.pos.Y == field.pos.Y - 1}
-                var right = board.find { item -> item.pos.X == field.pos.X && item.pos.Y == field.pos.Y + 1}
-                var topleft = board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y -1}
-                var topright = board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y + 1}
-                var bottomleft = board.find { item -> item.pos.X == field.pos.X + 1 && item.pos.Y == field.pos.Y - 1}
-                var bottomright = board.find { item -> item.pos.X == field.pos.X + 1 && item.pos.Y == field.pos.Y + 1}
+                val fields: ArrayList<IField> = getAdjacentFields(field)
 
-                top?.let {  top.bombValue++ }
-                bottom?.let {  bottom.bombValue++ }
-                left?.let {  left.bombValue++ }
-                right?.let {  right.bombValue++ }
-                topleft?.let {  topleft.bombValue++ }
-                topright?.let {  topright.bombValue++ }
-                bottomleft?.let {  bottomleft.bombValue++ }
-                bottomright?.let {  bottomright.bombValue++ }
-
+                for (f in fields){
+                    f.bombValue++
+                }
             }
         }
     }
@@ -74,5 +62,87 @@ class GameHandler(board: ArrayList<IField>) {
             }
         }
         return tempList
+    }
+
+
+    private fun showGameOver() {
+
+    }
+
+    private fun evaluateMove(field: IField) {
+        getAdjacentFieldsForEnabling(field)
+        for (f in enablingFields){
+            f.isEnabled = true
+        }
+        enablingFields = ArrayList()
+    }
+
+    private fun hasAdjacentMines(adjacentFields: ArrayList<IField>): Boolean {
+        for (field in adjacentFields){
+            if (field is Mine){
+                return true
+            }
+        }
+        return false
+    }
+    private fun getAdjacentFieldsForEnabling(field: IField){
+        val fields = getAdjacentFields(field)
+        if (!hasAdjacentMines(fields)){
+            for (f in fields) {
+                if (!enablingFields.contains(f)){
+                    enablingFields.add(f)
+                    if (f.bombValue == 0){
+                        getAdjacentFieldsForEnabling(f)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getAdjacentFields(field: IField): ArrayList<IField> {
+        val temp : ArrayList<IField> = ArrayList()
+        board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X +1 && item.pos.Y == field.pos.Y}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X && item.pos.Y == field.pos.Y - 1}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X && item.pos.Y == field.pos.Y + 1}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y -1}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X -1 && item.pos.Y == field.pos.Y + 1}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X + 1 && item.pos.Y == field.pos.Y - 1}
+            ?.let { temp.add(it) }
+        board.find { item -> item.pos.X == field.pos.X + 1 && item.pos.Y == field.pos.Y + 1}
+            ?.let { temp.add(it) }
+
+        return temp
+    }
+
+    fun onLongClickBoard(field: IField) {
+        if (!field.isEnabled){
+            if (!field.isFlagged){
+                field.setFlag()
+                bombCount--
+            }
+            else {
+                field.removeFlag()
+                bombCount++
+            }
+        }
+
+    }
+
+    fun onClickBoard(field: IField) {
+        if (!field.isFlagged){
+            field.isEnabled = true
+            if (field is Mine){
+                showGameOver()
+            }else{
+                evaluateMove(field)
+            }
+        }
     }
 }

@@ -34,13 +34,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.LoadGameActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".activities.HelpActivity"
             android:exported="false">
             <meta-data

@@ -6,7 +6,19 @@ data class Mine (
     override var pos: Position,
     ) : IField {
 
+    override var bombValue: Int = 1
+    override var fieldImage: Int = 0
+    override var isFlagged: Boolean = false
+
     override var isEnabled: Boolean = false
-    override var bombValue: Int = 0
-    override var fieldImage: Int = R.drawable.mine
+        set(value) {
+            field = value
+            updateFieldImage()
+        }
+
+    override fun updateFieldImage() {
+        fieldImage = R.drawable.mine
+    }
+
+
 }
