@@ -1,26 +1,21 @@
 package ch.ost.rj.mge.android_minesweeper.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.adapter.HighscoreAdapter
 import ch.ost.rj.mge.android_minesweeper.databinding.ActivityHighscoreBinding
-import ch.ost.rj.mge.android_minesweeper.databinding.ActivityStartScreenBinding
-import ch.ost.rj.mge.android_minesweeper.model.Highscore
 import ch.ost.rj.mge.android_minesweeper.model.HighscoreRepository
 
-class HighscoreActivity() : AppCompatActivity() {
-    private var adapter: HighscoreAdapter = HighscoreAdapter();
-    private var highscoreRepository : HighscoreRepository? = null;
+class HighscoreActivity : AppCompatActivity() {
+    private var adapter: HighscoreAdapter = HighscoreAdapter()
+    private var highscoreRepository : HighscoreRepository? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val context = applicationContext
-        highscoreRepository = HighscoreRepository.initialize(context);
+        highscoreRepository = HighscoreRepository.initialize(context)
 
         super.onCreate(savedInstanceState)
 
@@ -32,18 +27,18 @@ class HighscoreActivity() : AppCompatActivity() {
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         binding.highscoreView.layoutManager = layoutManager
 
-        binding.highscoreView.adapter = adapter;
+        binding.highscoreView.adapter = adapter
         binding.highscoreView.addItemDecoration(dividerItemDecoration)
 
         binding.resetButton.setOnClickListener {
-            highscoreRepository?.removeAll();
-            updateHighscores();
+            highscoreRepository?.removeAll()
+            updateHighscores()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        updateHighscores();
+        updateHighscores()
     }
 
     private fun updateHighscores() {
@@ -53,7 +48,7 @@ class HighscoreActivity() : AppCompatActivity() {
             Toast.makeText(
                 applicationContext,
                 "Connection to database was not established correctly",
-                Toast.LENGTH_LONG).show();
+                Toast.LENGTH_LONG).show()
         } else {
             adapter.updateHighscores(highscores)
         }

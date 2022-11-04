@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="none">0dp</dimen>
-    <dimen name="mini">8dp</dimen>
-    <dimen name="small">16dp</dimen>
-    <dimen name="medium">24dp</dimen>
-    <dimen name="big">32dp</dimen>
-    <dimen name="enormous">40dp</dimen>
-    <dimen name="universe">48dp</dimen>
+    <dimen name="eight">8dp</dimen>
+    <dimen name="sixteen">16dp</dimen>
+    <dimen name="twentyfour">24dp</dimen>
+    <dimen name="thirtytwo">32dp</dimen>
+    <dimen name="fourty">40dp</dimen>
+    <dimen name="fourtyeight">48dp</dimen>
+    <dimen name="fiftysix">56dp</dimen>
+    <dimen name="sixtyfour">64dp</dimen>
+    <dimen name="seventytwo">72dp</dimen>
+    <dimen name="eighty">80dp</dimen>
 </resources>

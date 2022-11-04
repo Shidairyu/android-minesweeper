@@ -6,5 +6,4 @@ import androidx.recyclerview.widget.RecyclerView
 
 class HighscoreViewHolder(parent: View,
                           var highscoreTextView : TextView) :
-    RecyclerView.ViewHolder(parent) {
-}
+    RecyclerView.ViewHolder(parent)

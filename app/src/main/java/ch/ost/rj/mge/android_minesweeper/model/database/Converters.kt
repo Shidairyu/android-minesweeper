@@ -19,11 +19,11 @@ class Converters {
 
     @TypeConverter
     fun difficultyToInt(difficulty: Difficulty): Int {
-        return Difficulty.convertToInt(difficulty);
+        return Difficulty.convertToInt(difficulty)
     }
 
     @TypeConverter
     fun intToDifficulty(value: Int): Difficulty {
-        return Difficulty.convertFromInt(value);
+        return Difficulty.convertFromInt(value)
     }
 }

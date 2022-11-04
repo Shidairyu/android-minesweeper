@@ -6,35 +6,49 @@ enum class Difficulty(val value : Int){
     Easy(32);
 
     companion object {
-        fun parse(difficulty: String) : Difficulty{
-            return when (difficulty.lowercase()) {
-                "hard" -> {
-                    Difficulty.Hard;
-                }
-                "easy" -> {
-                    Difficulty.Easy;
-                }
-                else -> {
-                    Difficulty.Normal;
-                }
-            }
-        }
-
         fun convertToInt(difficulty : Difficulty) : Int{
-            return difficulty.value;
+            return difficulty.value
         }
 
         fun convertFromInt(value : Int) : Difficulty{
             return when (value) {
-                8 -> {
-                    Difficulty.Hard;
+                Hard.value -> {
+                    Hard
                 }
-                16 -> {
-                    Difficulty.Easy;
+                Easy.value -> {
+                    Easy
                 }
                 else -> {
-                    Difficulty.Normal;
+                    Normal
                 }
+            }
+        }
+
+        fun fromString(string : String): Difficulty {
+            return when (string) {
+                "hard" -> {
+                    Hard
+                }
+                "easy" -> {
+                    Easy
+                }
+                else -> {
+                    Normal
+                }
+            }
+        }
+    }
+
+    override fun toString(): String {
+        return when (this) {
+            Hard -> {
+                "hard"
+            }
+            Easy -> {
+                "easy"
+            }
+            else -> {
+                "normal"
             }
         }
     }

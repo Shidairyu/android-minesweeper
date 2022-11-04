@@ -10,10 +10,10 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
-import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.activities.HelpActivity
 import ch.ost.rj.mge.android_minesweeper.activities.HighscoreActivity
 import ch.ost.rj.mge.android_minesweeper.activities.GameActivity
+import ch.ost.rj.mge.android_minesweeper.activities.NewGameActivity
 import ch.ost.rj.mge.android_minesweeper.databinding.FragmentStartControlsBinding
 import ch.ost.rj.mge.android_minesweeper.helpers.SettingsManager
 import kotlinx.coroutines.flow.first
@@ -31,7 +31,7 @@ class StartControlsFragment : Fragment() {
         settingsManager = SettingsManager(view.context)
 
         setupButton(binding.loadGameButton, GameActivity::class.java)
-        setupButton(binding.newGameButton, GameActivity::class.java)
+        setupButton(binding.newGameButton, NewGameActivity::class.java)
         setupButton(binding.highscoreButton, HighscoreActivity::class.java)
         setupButton(binding.helpButton, HelpActivity::class.java)
 
@@ -46,7 +46,7 @@ class StartControlsFragment : Fragment() {
 
     private fun setDarkmode(isChecked: Boolean){
         isDarkMode = isChecked
-        binding.toggleDarkSwitch.isChecked = isChecked;
+        binding.toggleDarkSwitch.isChecked = isChecked
         runBlocking {
             settingsManager.setIsDarkMode(isChecked)
         }

@@ -17,11 +17,11 @@
 
     <Button
         android:id="@+id/reset_button"
-        android:layout_width="@dimen/universe"
-        android:layout_height="@dimen/universe"
+        android:layout_width="@dimen/fourtyeight"
+        android:layout_height="@dimen/fourtyeight"
         android:text="@string/delete"
-        android:layout_marginEnd="@dimen/mini"
-        android:layout_marginBottom="@dimen/mini"
+        android:layout_marginEnd="@dimen/eight"
+        android:layout_marginBottom="@dimen/eight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

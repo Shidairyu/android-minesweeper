@@ -9,4 +9,13 @@
     <string name="delete">⌫</string>
     <string name="darkmode">Darkmode</string>
     <string name="lightmode">Lightmode</string>
+    <string name="start_a_new_game">Start a new game</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="new_game_help_text1">To start a new game, enter your name and choose a difficulty.</string>
+    <string name="new_game_help_text2">If you need help with choosing, please consider checking the Help page.</string>
+    <string name="username">username</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="start">Start</string>
 </resources>

@@ -12,14 +12,14 @@ class Highscore(@ColumnInfo val username : String,
                 @ColumnInfo val difficulty: Difficulty,
                 @ColumnInfo val durationInSeconds: Int) : Comparable<Highscore> {
     @PrimaryKey(autoGenerate = true)
-    var id : Int = 0;
+    var id : Int = 0
 
     override fun toString(): String {
-        val formattedDateTime = dateTime.toLocalDate();
+        val formattedDateTime = dateTime.toLocalDate()
         return "$formattedDateTime: $username, $difficulty game, $durationInSeconds seconds"
     }
 
     override fun compareTo(other: Highscore): Int {
-        return durationInSeconds.compareTo(other.durationInSeconds);
+        return durationInSeconds.compareTo(other.durationInSeconds)
     }
 }
