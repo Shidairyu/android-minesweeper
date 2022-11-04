@@ -14,4 +14,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="@dimen/universe"
+        android:layout_height="@dimen/universe"
+        android:text="@string/delete"
+        android:layout_marginEnd="@dimen/mini"
+        android:layout_marginBottom="@dimen/mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

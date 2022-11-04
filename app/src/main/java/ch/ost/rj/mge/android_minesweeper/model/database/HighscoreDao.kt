@@ -12,4 +12,7 @@ interface HighscoreDao {
 
     @Insert
     fun add(highscore: Highscore)
+
+    @Query("DELETE FROM highscores")
+    fun removeAll()
 }

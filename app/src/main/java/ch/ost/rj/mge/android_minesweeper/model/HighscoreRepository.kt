@@ -12,6 +12,7 @@ class HighscoreRepository(private val database: HighscoreDatabase) {
             val database = Room.databaseBuilder(context,
                 HighscoreDatabase::class.java,"highscore.db").allowMainThreadQueries().build()
 
+            //TODO REMOVE!!!
             if (database.highscoreDao().highscores.isEmpty()){
                 database.highscoreDao().add(Highscore("shidairyu", LocalDateTime.now(), Difficulty.Normal, 180))
                 database.highscoreDao().add(Highscore("sharuka", LocalDateTime.now(), Difficulty.Hard, 4))
@@ -27,5 +28,9 @@ class HighscoreRepository(private val database: HighscoreDatabase) {
 
     fun addHighscore(highscore: Highscore) {
         database.highscoreDao().add(highscore)
+    }
+
+    fun removeAll(){
+        database.highscoreDao().removeAll()
     }
 }

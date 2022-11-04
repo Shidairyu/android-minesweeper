@@ -53,7 +53,7 @@
         android:id="@+id/toggleDark_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/toggle_darkmode"
+        android:text="@string/darkmode"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

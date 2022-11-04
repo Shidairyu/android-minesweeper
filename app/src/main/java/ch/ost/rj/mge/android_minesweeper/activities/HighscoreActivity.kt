@@ -1,5 +1,6 @@
 package ch.ost.rj.mge.android_minesweeper.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.adapter.HighscoreAdapter
 import ch.ost.rj.mge.android_minesweeper.databinding.ActivityHighscoreBinding
 import ch.ost.rj.mge.android_minesweeper.databinding.ActivityStartScreenBinding
+import ch.ost.rj.mge.android_minesweeper.model.Highscore
 import ch.ost.rj.mge.android_minesweeper.model.HighscoreRepository
 
 class HighscoreActivity() : AppCompatActivity() {
@@ -32,10 +34,19 @@ class HighscoreActivity() : AppCompatActivity() {
 
         binding.highscoreView.adapter = adapter;
         binding.highscoreView.addItemDecoration(dividerItemDecoration)
+
+        binding.resetButton.setOnClickListener {
+            highscoreRepository?.removeAll();
+            updateHighscores();
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        updateHighscores();
+    }
+
+    private fun updateHighscores() {
         val highscores = highscoreRepository?.getHighscores()
 
         if(highscores == null){

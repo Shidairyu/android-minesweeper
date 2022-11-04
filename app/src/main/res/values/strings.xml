@@ -5,6 +5,8 @@
     <string name="new_game">New Game</string>
     <string name="highscores">Highscores</string>
     <string name="help">Help</string>
-    <string name="toggle_darkmode">Toggle Darkmode</string>
     <string name="minesweeper_icon">Minesweeper Icon</string>
+    <string name="delete">⌫</string>
+    <string name="darkmode">Darkmode</string>
+    <string name="lightmode">Lightmode</string>
 </resources>
