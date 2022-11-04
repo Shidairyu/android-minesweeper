@@ -1,23 +1,23 @@
 package ch.ost.rj.mge.android_minesweeper.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import ch.ost.rj.mge.android_minesweeper.R
+import androidx.appcompat.app.AppCompatActivity
+import ch.ost.rj.mge.android_minesweeper.databinding.ActivityStartScreenBinding
 import ch.ost.rj.mge.android_minesweeper.fragments.StartControlsFragment
 import ch.ost.rj.mge.android_minesweeper.fragments.TitleAndIcon
 
 class StartScreenActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityStartScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start_screen)
+        binding = ActivityStartScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val titleAndIconFragment = TitleAndIcon();
-        val startControlsFragment = StartControlsFragment();
-
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.title_icon_container, titleAndIconFragment)
-            .add(R.id.start_controls_container, startControlsFragment)
-            .commit();
+        supportFragmentManager.beginTransaction().apply {
+            replace(binding.startControlsContainer.id, StartControlsFragment())
+            replace(binding.titleIconContainer.id, TitleAndIcon())
+            commit()
+        }
     }
 }

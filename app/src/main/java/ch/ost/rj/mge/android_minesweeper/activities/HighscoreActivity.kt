@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.adapter.HighscoreAdapter
+import ch.ost.rj.mge.android_minesweeper.databinding.ActivityHighscoreBinding
+import ch.ost.rj.mge.android_minesweeper.databinding.ActivityStartScreenBinding
 import ch.ost.rj.mge.android_minesweeper.model.HighscoreRepository
 
 class HighscoreActivity() : AppCompatActivity() {
@@ -19,15 +21,17 @@ class HighscoreActivity() : AppCompatActivity() {
         highscoreRepository = HighscoreRepository.initialize(context);
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_highscore)
+
+        val inflater = layoutInflater
+        val binding = ActivityHighscoreBinding.inflate(inflater)
+        setContentView(binding.root)
 
         val layoutManager = LinearLayoutManager(this)
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        val recyclerView = findViewById<RecyclerView>(R.id.highscore_view)
-        recyclerView.layoutManager = layoutManager
+        binding.highscoreView.layoutManager = layoutManager
 
-        recyclerView.adapter = adapter;
-        recyclerView.addItemDecoration(dividerItemDecoration)
+        binding.highscoreView.adapter = adapter;
+        binding.highscoreView.addItemDecoration(dividerItemDecoration)
     }
 
     override fun onResume() {
