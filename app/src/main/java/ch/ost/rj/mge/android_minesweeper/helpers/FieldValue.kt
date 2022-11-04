@@ -17,67 +17,67 @@ enum class FieldValue(val value : Int) {
         fun parse(fieldNum: String) : FieldValue{
             return when (fieldNum.lowercase()) {
                 "zero" -> {
-                    FieldValue.Zero;
+                    Zero
                 }
                 "one" -> {
-                    FieldValue.One;
+                    One
                 }
                 "two" -> {
-                    FieldValue.Two;
+                    Two
                 }
                 "three" -> {
-                    FieldValue.Three;
+                    Three
                 }
                 "four" -> {
-                    FieldValue.Four;
+                    Four
                 }
                 "five" -> {
-                    FieldValue.Five;
+                    Five
                 }
                 "six" -> {
-                    FieldValue.Six;
+                    Six
                 }
                 "seven" -> {
-                    FieldValue.Seven;
+                    Seven
                 }
                 else ->{
-                    FieldValue.Eight;
+                    Eight
                 }
             }
         }
 
         fun convertToInt(field : FieldValue) : Int{
-            return field.value;
+            return field.value
         }
 
         fun convertFromInt(value : Int) : FieldValue{
             return when (value) {
                 R.drawable.zero -> {
-                    FieldValue.Zero;
+                    Zero
                 }
                 R.drawable.one -> {
-                    FieldValue.One;
+                    One
                 }
                 R.drawable.two -> {
-                    FieldValue.Two;
+                    Two
                 }
                 R.drawable.three -> {
-                    FieldValue.Three;
+                    Three
                 }
                 R.drawable.four -> {
-                    FieldValue.Four;
+                    Four
                 }
                 R.drawable.five -> {
-                    FieldValue.Five;
+                    Five
                 }
                 R.drawable.six -> {
-                    FieldValue.Six;
+                    Six
                 }
                 R.drawable.seven -> {
-                    FieldValue.Seven;
+                    Seven
                 }
                 else -> {
-                    FieldValue.Eight;
+                    Eight
                 }
             }
         }

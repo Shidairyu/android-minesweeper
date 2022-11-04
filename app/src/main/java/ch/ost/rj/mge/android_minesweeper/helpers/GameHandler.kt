@@ -54,7 +54,7 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
     }
 
     private fun generateMines(): ArrayList<Position> {
-        var tempList: ArrayList<Position> = ArrayList()
+        val tempList: ArrayList<Position> = ArrayList()
         while (tempList.size != bombCount){
             val pos = Position((0 until fieldHeight).random(),(0 until fieldWidth).random())
 

@@ -1,5 +1,4 @@
 package ch.ost.rj.mge.android_minesweeper.model
-import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.helpers.FieldValue
 import ch.ost.rj.mge.android_minesweeper.helpers.FieldValue.Companion.convertToInt
 
