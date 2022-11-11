@@ -30,7 +30,6 @@ class StartControlsFragment : Fragment() {
 
         settingsManager = SettingsManager(view.context)
 
-        setupButton(binding.loadGameButton, GameActivity::class.java)
         setupButton(binding.newGameButton, NewGameActivity::class.java)
         setupButton(binding.highscoreButton, HighscoreActivity::class.java)
         setupButton(binding.helpButton, HelpActivity::class.java)

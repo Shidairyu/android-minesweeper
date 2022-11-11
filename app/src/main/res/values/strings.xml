@@ -18,4 +18,22 @@
     <string name="username">username</string>
     <string name="difficulty">Difficulty</string>
     <string name="start">Start</string>
+    <string name="image_loading_error">Could not load image…</string>
+    <string name="help_image_path">help/%d.jpg</string>
+
+    <string-array name="help_titles">
+        <item>Minesweeper</item>
+        <item>Startpage</item>
+        <item>New Game</item>
+        <item>Highscores</item>
+        <item>Darkmode</item>
+    </string-array>
+
+    <string-array name="help_descriptions">
+        <item>Explain game mechanics</item>
+        <item>The Startpage helps navigating all the contents in the app.</item>
+        <item>TODO</item>
+        <item>TODO</item>
+        <item>TODO</item>
+    </string-array>
 </resources>

@@ -11,4 +11,5 @@
     <dimen name="sixtyfour">64dp</dimen>
     <dimen name="seventytwo">72dp</dimen>
     <dimen name="eighty">80dp</dimen>
+    <dimen name="maxButtonWidth">320dp</dimen>
 </resources>
