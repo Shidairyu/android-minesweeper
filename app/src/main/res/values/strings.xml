@@ -20,6 +20,8 @@
     <string name="start">Start</string>
     <string name="image_loading_error">Could not load image…</string>
     <string name="help_image_path">help/%d.jpg</string>
+    <string name="shows_helping_picture">Shows helping picture</string>
+    <string name="shows_game_icon">Shows game icon</string>
 
     <string-array name="help_titles">
         <item>Minesweeper</item>

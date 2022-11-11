@@ -62,6 +62,7 @@
         app:layout_constraintEnd_toStartOf="@+id/swipe_right"
         app:layout_constraintStart_toEndOf="@+id/swipe_left"
         app:layout_constraintTop_toBottomOf="@+id/help_description"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/shows_helping_picture" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

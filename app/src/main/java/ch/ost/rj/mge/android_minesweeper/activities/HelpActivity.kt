@@ -14,7 +14,7 @@ class HelpActivity : AppCompatActivity() {
         val binding = ActivityHelpBinding.inflate(inflater)
         setContentView(binding.root)
 
-        val helpViewPager = findViewById<ViewPager2>(R.id.help_viewpager);
+        val helpViewPager = findViewById<ViewPager2>(R.id.help_viewpager)
 
         val helpPageContents = resources.getStringArray(R.array.help_titles)
         val helpViewPagerAdapter = HelpViewPagerAdapter(this, helpPageContents.size)
