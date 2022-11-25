@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eight"
+        android:layout_marginTop="@dimen/eight"
+        android:text="1."
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen"
+        android:text="name"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ranking"
+        app:layout_constraintStart_toEndOf="@+id/ranking"
+        app:layout_constraintTop_toTopOf="@+id/ranking" />
+
+    <TextView
+        android:id="@+id/difficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/twentyfour"
+        android:text="@string/difficulty"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/name"
+        app:layout_constraintEnd_toStartOf="@+id/duration"
+        app:layout_constraintTop_toTopOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="@dimen/seventytwo"
+        android:layout_height="wrap_content"
+        android:text="duration"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/difficulty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/difficulty" />
+</androidx.constraintlayout.widget.ConstraintLayout>
