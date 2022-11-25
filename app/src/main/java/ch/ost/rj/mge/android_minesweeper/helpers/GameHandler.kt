@@ -1,21 +1,29 @@
 package ch.ost.rj.mge.android_minesweeper.helpers
 
+import android.content.Context
 import android.content.Intent
-import ch.ost.rj.mge.android_minesweeper.model.IField
-import ch.ost.rj.mge.android_minesweeper.model.Mine
-import ch.ost.rj.mge.android_minesweeper.model.Position
-import ch.ost.rj.mge.android_minesweeper.model.Value
+import ch.ost.rj.mge.android_minesweeper.adapter.HighscoreAdapter
+import ch.ost.rj.mge.android_minesweeper.model.*
+import kotlin.concurrent.timer
 
-class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
+class GameHandler(board: ArrayList<IField>, difficulty: Difficulty, username: String, data: Intent, context: Context) {
     val fieldWidth: Int = 10
     var bombCount: Int = 0
     private val fieldHeight: Int = 20
     private var board: ArrayList<IField>
+    private var username: String
+    private var data: Intent
+    private var difficulty: Difficulty
+    private var context: Context
     private var enablingFields: ArrayList<IField> = ArrayList()
 
     init {
         bombCount = difficulty.value
+        this.difficulty = difficulty
         this.board = board
+        this.username = username
+        this.data = data
+        this.context = context
     }
 
     fun setupGame() {
@@ -147,7 +155,11 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
     }
 
     private fun saveHighscore(){
-
+        val time = data.getDoubleExtra(TimerService.TIME_EXTRA,0.0)
+        val duration = TimerService.getTimeStringFromDouble(time);
+        val highscore = Highscore(username, difficulty, duration);
+        val highscoreRepository = HighscoreRepository.initialize(context);
+        highscoreRepository.addHighscore(highscore);
     }
 
     private fun showWin() {

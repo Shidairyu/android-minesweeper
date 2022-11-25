@@ -34,11 +34,11 @@ class GameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val difficulty = Difficulty.fromString(intent.getStringExtra(SharedData.DifficultyKey)!!)
-        val username = intent.getStringExtra(SharedData.UsernameKey)
+        val username = intent.getStringExtra(SharedData.UsernameKey)!!
 
         boardRV = binding.idRVBoard
         board = ArrayList()
-        gameHandler = GameHandler(board, difficulty)
+        gameHandler = GameHandler(board, difficulty, username, intent, applicationContext)
 
         bombCountTV = binding.idTVBombCount
         bombCountTV.text = gameHandler.bombCount.toString()
@@ -70,19 +70,9 @@ class GameActivity : AppCompatActivity() {
     private val updateTime: BroadcastReceiver = object : BroadcastReceiver (){
         override fun onReceive(context: Context?, intent: Intent) {
             time = intent.getDoubleExtra(TimerService.TIME_EXTRA,0.0)
-            binding.idTVTimer.text = getTimeStringFromDouble(time)
+            binding.idTVTimer.text = TimerService.getTimeStringFromDouble(time)
         }
     }
-
-    private fun getTimeStringFromDouble(time:Double) : String {
-        val resultInt = time.roundToInt()
-        val hours = resultInt % 86400 / 3600
-        val minutes = resultInt % 86400 % 3600 / 60
-        val seconds = resultInt % 86400 % 3600 % 60
-        return makeTimeString(hours,minutes,seconds)
-    }
-
-    private fun makeTimeString(hours: Int, minutes: Int, seconds: Int): String = String.format("%02d:%02d:%02d", hours, minutes, seconds)
 
     fun onClickBoard(field: IField) {
         gameHandler.onClickBoard(field)
