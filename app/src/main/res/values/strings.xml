@@ -22,6 +22,9 @@
     <string name="help_image_path">help/%d.jpg</string>
     <string name="shows_helping_picture">Shows helping picture</string>
     <string name="shows_game_icon">Shows game icon</string>
+    <string name="timeLabel">Time:</string>
+    <string name="TimerDefault">00:00:00</string>
+    <string name="BombCountLabel">Bombs:</string>
 
     <string-array name="help_titles">
         <item>Minesweeper</item>
