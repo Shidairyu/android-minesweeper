@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import ch.ost.rj.mge.android_minesweeper.databinding.ActivityNewGameBinding
 import ch.ost.rj.mge.android_minesweeper.helpers.Difficulty
+import ch.ost.rj.mge.android_minesweeper.helpers.SharedData
 
 class NewGameActivity : AppCompatActivity() {
     private lateinit var binding : ActivityNewGameBinding
@@ -42,8 +43,8 @@ class NewGameActivity : AppCompatActivity() {
                 if(username.isNotEmpty()){
                     usernameInputCheck = true
                 } else {
-                    usernameInputCheck = false;
-                    binding.startNewGame.isEnabled = false;
+                    usernameInputCheck = false
+                    binding.startNewGame.isEnabled = false
                 }
 
                 if(usernameInputCheck && radioButtonsChecked){
@@ -61,11 +62,11 @@ class NewGameActivity : AppCompatActivity() {
     fun activateStartButton(difficulty : Difficulty){
         binding.startNewGame.setOnClickListener{
             val int = Intent(this, GameActivity::class.java)
-            int.putExtra("difficulty", difficulty.toString())
-            int.putExtra("username", binding.newGameUsernameInput.text.toString())
+            int.putExtra(SharedData.DifficultyKey, difficulty.toString())
+            int.putExtra(SharedData.UsernameKey, binding.newGameUsernameInput.text.toString())
 
             startActivity(int)
         }
-        binding.startNewGame.isEnabled = true;
+        binding.startNewGame.isEnabled = true
     }
 }

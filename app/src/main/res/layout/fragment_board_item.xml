@@ -18,7 +18,8 @@
             android:id="@+id/idIVField"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:contentDescription="@string/shows_game_icon" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

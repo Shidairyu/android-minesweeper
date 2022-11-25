@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.activities.GameActivity
-import ch.ost.rj.mge.android_minesweeper.helpers.GameHandler
 import ch.ost.rj.mge.android_minesweeper.model.IField
 
 class BoardAdapter(

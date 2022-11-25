@@ -10,9 +10,9 @@
         android:id="@+id/welcome"
         android:layout_width="@dimen/none"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/thirtytwo"
+        android:layout_marginStart="@dimen/twentyfour"
         android:layout_marginTop="@dimen/twentyfour"
-        android:layout_marginEnd="@dimen/thirtytwo"
+        android:layout_marginEnd="@dimen/twentyfour"
         android:text="@string/welcome_to"
         android:textAlignment="center"
         android:textSize="48sp"
@@ -44,12 +44,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="@dimen/none"
+        android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="@dimen/thirtytwo"
+        android:contentDescription="@string/minesweeper_icon"
+        android:src="@mipmap/ic_launcher_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/title"
         app:layout_constraintStart_toStartOf="@+id/title"
-        app:layout_constraintTop_toBottomOf="@+id/version"
-        tools:src="@tools:sample/avatars"
-        android:contentDescription="@string/minesweeper_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/version" />
 </androidx.constraintlayout.widget.ConstraintLayout>
