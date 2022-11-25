@@ -38,7 +38,7 @@ class HighscoreAdapter : RecyclerView.Adapter<HighscoreViewHolder>() {
         holder.rankingTextView.text = "${position+1}."
         holder.nameTextView.text = score.username
         holder.difficultyTextView.text = score.difficulty.toString()
-        holder.durationTextView.text = score.durationInSeconds.toString()
+        holder.durationTextView.text = score.durationInSeconds
     }
 }
 

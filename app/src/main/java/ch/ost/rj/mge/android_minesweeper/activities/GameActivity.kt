@@ -15,10 +15,13 @@ import ch.ost.rj.mge.android_minesweeper.helpers.Difficulty
 import ch.ost.rj.mge.android_minesweeper.helpers.GameHandler
 import ch.ost.rj.mge.android_minesweeper.helpers.SharedData
 import ch.ost.rj.mge.android_minesweeper.helpers.TimerService
+import ch.ost.rj.mge.android_minesweeper.model.Highscore
+import ch.ost.rj.mge.android_minesweeper.model.HighscoreRepository
 import ch.ost.rj.mge.android_minesweeper.model.IField
-import kotlin.math.roundToInt
 
 class GameActivity : AppCompatActivity() {
+    private lateinit var username: String
+    private lateinit var difficulty: Difficulty
     private lateinit var binding: ActivityGameBinding
     private lateinit var boardRV: RecyclerView
     private lateinit var bombCountTV: TextView
@@ -33,38 +36,30 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val difficulty = Difficulty.fromString(intent.getStringExtra(SharedData.DifficultyKey)!!)
-        val username = intent.getStringExtra(SharedData.UsernameKey)!!
+        difficulty = Difficulty.fromString(intent.getStringExtra(SharedData.DifficultyKey)!!)
+        username = intent.getStringExtra(SharedData.UsernameKey)!!
 
         boardRV = binding.idRVBoard
         board = ArrayList()
-        gameHandler = GameHandler(board, difficulty, username, intent, applicationContext)
-
+        startTimer()
+        gameHandler = GameHandler(board, difficulty)
         bombCountTV = binding.idTVBombCount
         bombCountTV.text = gameHandler.bombCount.toString()
 
         val layoutManager = GridLayoutManager(this, gameHandler.fieldWidth)
         boardRV.layoutManager = layoutManager
-
         boardAdapter = BoardAdapter(board, this)
         boardRV.adapter = boardAdapter
 
         gameHandler.setupGame()
-        setupTimer()
-        startTimer()
-
         boardAdapter.notifyDataSetChanged()
     }
 
     private fun startTimer() {
-        serviceIntent.putExtra(TimerService.TIME_EXTRA,time)
-        startService(serviceIntent)
-
-    }
-
-    private fun setupTimer() {
         serviceIntent = Intent(applicationContext, TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
+        serviceIntent.putExtra(TimerService.TIME_EXTRA,time)
+        startService(serviceIntent)
     }
 
     private val updateTime: BroadcastReceiver = object : BroadcastReceiver (){
@@ -75,7 +70,16 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun onClickBoard(field: IField) {
-        gameHandler.onClickBoard(field)
+        gameHandler.onClickBoard(field) { isWin ->
+            if (isWin) {
+                val duration = TimerService.getTimeStringFromDouble(time)
+                val highscore = Highscore(username, difficulty, duration)
+                val highscoreRepository = HighscoreRepository.initialize(applicationContext)
+                highscoreRepository.addHighscore(highscore)
+            } else {
+
+            }
+        }
         boardAdapter.notifyDataSetChanged()
     }
 

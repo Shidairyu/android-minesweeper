@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ch.ost.rj.mge.android_minesweeper.helpers.Difficulty
-import java.time.LocalDateTime
 
 @Entity(tableName = "highscores")
 class Highscore(@ColumnInfo val username : String,
@@ -19,7 +18,7 @@ class Highscore(@ColumnInfo val username : String,
 
     override fun compareTo(other: Highscore): Int {
         if(difficulty == other.difficulty){
-            return durationInSeconds.compareTo(other.durationInSeconds);
+            return durationInSeconds.compareTo(other.durationInSeconds)
         }
         return difficulty.compareTo(other.difficulty)
     }

@@ -2,9 +2,7 @@ package ch.ost.rj.mge.android_minesweeper.model
 
 import android.content.Context
 import androidx.room.Room
-import ch.ost.rj.mge.android_minesweeper.helpers.Difficulty
 import ch.ost.rj.mge.android_minesweeper.model.database.HighscoreDatabase
-import java.time.LocalDateTime
 
 class HighscoreRepository(private val database: HighscoreDatabase) {
     companion object {
