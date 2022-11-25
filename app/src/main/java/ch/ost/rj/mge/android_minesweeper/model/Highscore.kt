@@ -20,6 +20,9 @@ class Highscore(@ColumnInfo val username : String,
     }
 
     override fun compareTo(other: Highscore): Int {
-        return durationInSeconds.compareTo(other.durationInSeconds)
+        if(difficulty == other.difficulty){
+            return durationInSeconds.compareTo(other.durationInSeconds);
+        }
+        return difficulty.compareTo(other.difficulty)
     }
 }

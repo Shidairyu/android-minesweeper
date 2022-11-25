@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import ch.ost.rj.mge.android_minesweeper.R
 import ch.ost.rj.mge.android_minesweeper.databinding.FragmentHelpBinding
@@ -60,9 +61,9 @@ class HelpFragment : Fragment() {
             imageBitmap = BitmapFactory.decodeStream(fileStream)
             fileStream.close()
             binding.helpImage.setImageBitmap(imageBitmap)
+            binding.helpImage.isVisible = true;
         } catch (e: IOException) {
-            e.printStackTrace()
-            Toast.makeText(context, getString(R.string.image_loading_error), Toast.LENGTH_SHORT).show()
+            binding.helpImage.isVisible = false;
         }
     }
 }

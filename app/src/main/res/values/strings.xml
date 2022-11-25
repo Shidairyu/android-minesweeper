@@ -25,20 +25,47 @@
     <string name="timeLabel">Time:</string>
     <string name="TimerDefault">00:00:00</string>
     <string name="BombCountLabel">Bombs:</string>
+    <string name="left"><![CDATA[<]]></string>
+    <string name="username_literal">Username</string>
+    <string name="duration">Duration</string>
+    <string name="right"><![CDATA[>]]></string>
 
     <string-array name="help_titles">
-        <item>Minesweeper</item>
         <item>Startpage</item>
         <item>New Game</item>
+        <item>Minesweeper</item>
         <item>Highscores</item>
         <item>Darkmode</item>
     </string-array>
 
     <string-array name="help_descriptions">
-        <item>Explain game mechanics</item>
-        <item>The Startpage helps navigating all the contents in the app.</item>
-        <item>TODO</item>
-        <item>TODO</item>
-        <item>TODO</item>
+        <item>
+            The Startpage helps navigating the app. \n The explanation to the two buttons
+            \'NEW GAME\' and \'HIGHSCORES\' can be found by swiping to the right. The darkmode is
+            explained at the end of the help pages.
+        </item>
+        <item>
+            To start a new game you have to insert your username and the diffiiculty you want to play at.\n
+            Easy: 20 bombs to detect\n
+            Medium: 40 bombs\n
+            Hard: 60 bombs
+        </item>
+        <item>
+            The principle of Minesweeper is to mark all bombs with a flag without revealing one.
+            Once a bomb has been tapped, the game is over. \n
+            As an aid, the number of bombs in immediate vicinity is displayed when fields are uncovered.
+            Through logical deduction you can find the fields with a bomb underneath it.\n
+            Single-Click: Reveal field\n
+            Long-Click: Flag the field as bomb
+        </item>
+        <item>This section shows all the played games and with their difficulty and the duration.
+        The fastest players will top the rankings, depending on the difficulty.</item>
+        <item>
+            If the brightness of white is to damaging to your eyes, you can choose to use the
+            darkmode which we kindly provided.
+            To toggle it, simply go to the start-screen and flip the rescuing switch.
+            Your selection will be stored, so that you dont get blinded if you want to play
+            Minesweeper in the morning after waking up.
+        </item>
     </string-array>
 </resources>

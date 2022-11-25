@@ -2,8 +2,8 @@ package ch.ost.rj.mge.android_minesweeper.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import ch.ost.rj.mge.android_minesweeper.databinding.HighscoreViewBinding
 import ch.ost.rj.mge.android_minesweeper.model.Highscore
 
 class HighscoreAdapter : RecyclerView.Adapter<HighscoreViewHolder>() {
@@ -16,27 +16,29 @@ class HighscoreAdapter : RecyclerView.Adapter<HighscoreViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HighscoreViewHolder {
         val context = parent.context
-        val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(
-            android.R.layout.simple_list_item_2,
-            parent,
-            false
-        )
+        val binding = HighscoreViewBinding.inflate(LayoutInflater.from(context), parent, false)
 
-        val textView = view.findViewById<TextView>(android.R.id.text1)
-        return HighscoreViewHolder(view, textView)
-    }
-
-    override fun onBindViewHolder(holder: HighscoreViewHolder, position: Int) {
-        holder.highscoreTextView.text = buildString {
-            append(position + 1)
-            append(": ")
-            append(highscores[position])
-        }
+        val rankingTextView = binding.ranking
+        val nameTextView = binding.name
+        val durationTextView = binding.difficulty
+        val difficultyTextView = binding.duration
+        return HighscoreViewHolder(binding.root,
+            rankingTextView,
+            nameTextView,
+            durationTextView,
+            difficultyTextView)
     }
 
     override fun getItemCount(): Int {
         return highscores.size
+    }
+
+    override fun onBindViewHolder(holder: HighscoreViewHolder, position: Int) {
+        val score = highscores[position]
+        holder.rankingTextView.text = "${position+1}."
+        holder.nameTextView.text = score.username
+        holder.difficultyTextView.text = score.difficulty.toString()
+        holder.durationTextView.text = score.durationInSeconds.toString()
     }
 }
 

@@ -6,6 +6,47 @@
     android:layout_height="match_parent"
     tools:context=".activities.HighscoreActivity">
 
+    <TextView
+        android:id="@+id/nameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fourty"
+        android:text="@string/username_literal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/difficultyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/eight"
+        android:text="@string/difficulty"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/nameTitle"
+        app:layout_constraintEnd_toStartOf="@+id/durationTitle"
+        app:layout_constraintTop_toTopOf="@+id/nameTitle" />
+
+    <TextView
+        android:id="@+id/durationTitle"
+        android:layout_width="@dimen/eighty"
+        android:layout_height="wrap_content"
+        android:text="@string/duration"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/difficultyTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/difficultyTitle" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/nameTitle" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/highscore_view"
         android:layout_width="0dp"
@@ -13,7 +54,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <Button
         android:id="@+id/reset_button"
@@ -24,6 +65,5 @@
         android:layout_marginBottom="@dimen/eight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
