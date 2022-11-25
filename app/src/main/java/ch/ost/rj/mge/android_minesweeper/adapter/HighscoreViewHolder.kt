@@ -5,5 +5,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class HighscoreViewHolder(parent: View,
-                          var highscoreTextView : TextView) :
+                          val rankingTextView: TextView,
+                          val nameTextView: TextView,
+                          val difficultyTextView: TextView,
+                          val durationTextView: TextView,
+                          ) :
     RecyclerView.ViewHolder(parent)
