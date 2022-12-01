@@ -20,4 +20,4 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 | Persistence: Darkmode settings                                              |      1      |
 | View binding                                                                |      2      |
 | Dark theme                                                                  |      1      |
-| <h2>Total</h2>                                                              | <h2>27</h2> |
+| <h4>Total</h4>                                                              | <h4>27</h4> |
