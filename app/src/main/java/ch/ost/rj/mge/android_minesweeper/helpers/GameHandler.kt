@@ -116,7 +116,7 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
         return temp
     }
 
-    fun onLongClickBoard(field: IField) {
+    fun onLongClickBoard(field: IField, endGameCallback: (Boolean) -> Unit) {
         if (!field.isEnabled){
             if (!field.isFlagged){
                 field.setFlag()
@@ -125,6 +125,12 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
             else {
                 field.removeFlag()
                 bombCount++
+            }
+        }
+        if (bombCount == 0){
+            val mines =  board.filterIsInstance<Mine>()
+            if (mines.all { mine -> mine.isFlagged }){
+                endGameCallback.invoke(true)
             }
         }
     }
@@ -138,12 +144,5 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
                 evaluateMove(field)
             }
         }
-        else if (bombCount == 0 && board.all { item -> item.isFlagged && item is Mine}){
-            endGameCallback.invoke(true);
-        }
-        if(bombCount == 0){
-            endGameCallback.invoke(false)
-        }
     }
-
 }
