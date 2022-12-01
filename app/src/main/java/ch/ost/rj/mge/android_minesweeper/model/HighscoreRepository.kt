@@ -9,7 +9,6 @@ class HighscoreRepository(private val database: HighscoreDatabase) {
         fun initialize(context : Context): HighscoreRepository {
             val database = Room.databaseBuilder(context,
                 HighscoreDatabase::class.java,"highscore.db").allowMainThreadQueries().build()
-
             return HighscoreRepository(database)
         }
     }

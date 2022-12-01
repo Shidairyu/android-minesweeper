@@ -4,10 +4,8 @@
     <dimen name="eight">8dp</dimen>
     <dimen name="sixteen">16dp</dimen>
     <dimen name="twentyfour">24dp</dimen>
-    <dimen name="thirtytwo">32dp</dimen>
     <dimen name="fourty">40dp</dimen>
     <dimen name="fourtyeight">48dp</dimen>
-    <dimen name="fiftysix">56dp</dimen>
     <dimen name="sixtyfour">64dp</dimen>
     <dimen name="seventytwo">72dp</dimen>
     <dimen name="eighty">80dp</dimen>

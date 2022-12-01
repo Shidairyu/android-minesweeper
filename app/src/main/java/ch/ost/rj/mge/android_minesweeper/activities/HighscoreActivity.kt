@@ -16,7 +16,6 @@ class HighscoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val context = applicationContext
         highscoreRepository = HighscoreRepository.initialize(context)
-
         super.onCreate(savedInstanceState)
 
         val inflater = layoutInflater

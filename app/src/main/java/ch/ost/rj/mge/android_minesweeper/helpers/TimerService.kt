@@ -45,6 +45,6 @@ class TimerService : Service() {
             return makeTimeString(hours,minutes,seconds)
         }
 
-        fun makeTimeString(hours: Int, minutes: Int, seconds: Int): String = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+        private fun makeTimeString(hours: Int, minutes: Int, seconds: Int): String = String.format("%02d:%02d:%02d", hours, minutes, seconds)
     }
 }

@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import ch.ost.rj.mge.android_minesweeper.R
@@ -61,9 +60,9 @@ class HelpFragment : Fragment() {
             imageBitmap = BitmapFactory.decodeStream(fileStream)
             fileStream.close()
             binding.helpImage.setImageBitmap(imageBitmap)
-            binding.helpImage.isVisible = true;
+            binding.helpImage.isVisible = true
         } catch (e: IOException) {
-            binding.helpImage.isVisible = false;
+            binding.helpImage.isVisible = false
         }
     }
 }
