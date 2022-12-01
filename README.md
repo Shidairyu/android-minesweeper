@@ -24,8 +24,10 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 
 ## Screenshots
 ### Start-Screen
+<div float="left"> 
 <img src="pictures/startscreen_light.png" width="250" />
 <img src="pictures/startscreen_dark.png" width="250" />
+</div>
 
 <br>
 
@@ -33,12 +35,16 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 
 
 ### New Game and Game screens
+<div float="left"> 
 <img src="pictures/newgame.png" width="250" />
 <img src="pictures/gamescreen.png" width="250" />
+</div>
 
 <br>
 
 --- 
 ### High-Score and Help
+<div float="left"> 
 <img src="pictures/highscore.png" width="250" />
 <img src="pictures/help.png" width="250" />
+</div>
