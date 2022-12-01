@@ -48,3 +48,12 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 <img src="pictures/highscore.png" width="250" />
 <img src="pictures/help.png" width="250" />
 </div>
+
+<br>
+
+--- 
+### Game Over
+<div float="left"> 
+<img src="pictures/gameoverlost.png" width="250" />
+<img src="pictures/gameoverwin.png" width="250" />
+</div>
