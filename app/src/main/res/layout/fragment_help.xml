@@ -56,22 +56,18 @@
 
     <ImageView
         android:id="@+id/help_image"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
-        android:scaleX="2"
-        android:scaleY="2"
+        android:scaleType="fitCenter"
         tools:src="@tools:sample/avatars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/sixteen"
         android:layout_marginEnd="@dimen/sixteen"
-        android:layout_marginTop="@dimen/eight"
+        android:layout_marginTop="@dimen/twentyfour"
         android:layout_marginBottom="@dimen/sixteen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/swipe_right"
         app:layout_constraintStart_toEndOf="@+id/swipe_left"
         app:layout_constraintTop_toBottomOf="@+id/help_description"
-        android:contentDescription="@string/shows_helping_picture"
-        android:background="@drawable/image_border"/>
+        android:contentDescription="@string/shows_helping_picture"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
