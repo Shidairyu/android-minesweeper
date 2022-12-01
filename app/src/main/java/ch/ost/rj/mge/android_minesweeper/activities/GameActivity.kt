@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -69,6 +70,26 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
+    private fun showEndToast(isWin: Boolean) {
+        var msg = if (isWin){
+            "Congratulations, you have successfully completed the minesweeper game\nPlease check the Highscore-Board:)"
+        } else {
+            "Oops, looks like you failed to solve the game. Please try again."
+        }
+        Toast.makeText(applicationContext, msg, Toast.LENGTH_LONG).show()
+        Thread.sleep(5000L)
+        goBackToMainScreen()
+    }
+
+    private fun goBackToMainScreen() {
+        val intent = Intent(applicationContext, StartScreenActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
+    }
+
     fun onClickBoard(field: IField) {
         gameHandler.onClickBoard(field) { isWin ->
             if (isWin) {
@@ -76,8 +97,9 @@ class GameActivity : AppCompatActivity() {
                 val highscore = Highscore(username, difficulty, duration)
                 val highscoreRepository = HighscoreRepository.initialize(applicationContext)
                 highscoreRepository.addHighscore(highscore)
+                showEndToast(true);
             } else {
-
+                showEndToast(false)
             }
         }
         boardAdapter.notifyDataSetChanged()

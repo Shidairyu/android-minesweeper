@@ -127,7 +127,6 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
                 bombCount++
             }
         }
-
     }
 
     fun onClickBoard(field: IField, endGameCallback: (isWin: Boolean) -> Unit) {
@@ -139,8 +138,11 @@ class GameHandler(board: ArrayList<IField>, difficulty: Difficulty) {
                 evaluateMove(field)
             }
         }
+        else if (bombCount == 0 && board.all { item -> item.isFlagged && item is Mine}){
+            endGameCallback.invoke(true);
+        }
         if(bombCount == 0){
-            endGameCallback.invoke(true)
+            endGameCallback.invoke(false)
         }
     }
 
