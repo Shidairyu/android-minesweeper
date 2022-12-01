@@ -21,3 +21,7 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 | View binding                                                                |      2      |
 | Dark theme                                                                  |      1      |
 | <h4>Total</h4>                                                              | <h4>27</h4> |
+
+## Screenshots
+<img src="pictures/help.png"
+     style="float: left; width=12px;" />
