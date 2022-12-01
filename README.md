@@ -23,5 +23,22 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 | <h4>Total</h4>                                                              | <h4>27</h4> |
 
 ## Screenshots
-<img src="pictures/help.png"
-     style="float: left; width=12px;" />
+### Start-Screen
+<img src="pictures/startscreen_light.png" width="250" />
+<img src="pictures/startscreen_dark.png" width="250" />
+
+<br>
+
+--- 
+
+
+### New Game and Game screens
+<img src="pictures/newgame.png" width="250" />
+<img src="pictures/gamescreen.png" width="250" />
+
+<br>
+
+--- 
+### High-Score and Help
+<img src="pictures/highscore.png" width="250" />
+<img src="pictures/help.png" width="250" />
