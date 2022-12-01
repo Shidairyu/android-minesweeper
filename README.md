@@ -7,7 +7,7 @@ There is also an included darkmode to lessen the strain on your eyes (especially
 
 ## Which points we want to achieve
 
-| description                                                                 |   points    |
+| Description                                                                 |   Points    |
 |:----------------------------------------------------------------------------|:-----------:|
 | Screen: Start                                                               |      1      |
 | Screen: New Game and Game                                                   |    1 + 4    |
