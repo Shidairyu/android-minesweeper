@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:text="@string/duration_nameof"
         android:textSize="18sp"
+        android:layout_marginEnd="@dimen/eight"
         app:layout_constraintBottom_toBottomOf="@+id/difficulty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/difficulty" />
